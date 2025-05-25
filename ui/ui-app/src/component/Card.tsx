@@ -35,18 +35,16 @@ export const Card: React.FC<CardWithStatusProps> = ({
   return (
     <div
       data-testId="card"
-      className=" rounded-2xl inset-shadow-rose-200 drop-shadow-blue-200 w-[28rem] h-[12rem] bg-blue-950 text-white hover:shadow-2xl hover:scale-95"
+      className=" rounded-2xl inset-shadow-rose-200 drop-shadow-blue-200 w-[28rem] h-[12rem] bg-gray-300 text-black hover:shadow-2xl hover:scale-95"
     >
-      <h2 className="header-4 text-center font-extrabold text-white p-4">
-        {title}
-      </h2>
+      <h2 className="font-bold text-center p-2">{title}</h2>
 
-      <p className="body-3 pb-4 pl-4 flex">
+      <p className="text-[0.75rem] pb-2 pl-4 flex">
         {" "}
         <PiFilmReel className=" w-[22px] h-[30px] pr-1" />
         {owner}
       </p>
-      <p className="font-bold pl-4 pb-4">{description}</p>
+      <p className="pl-4 pb-4">{description}</p>
       <div className="flex justify-between w-[26rem] pl-4">
         <div className="flex pl-2 w-[14rem]  justify-between">
           <p className="flex">

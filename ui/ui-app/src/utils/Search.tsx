@@ -1,20 +1,26 @@
-import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
-import type { CardProps } from "../component/Card";
 
 interface SearchBoxProps {
-  data: CardProps[];
+  selectedOption: string;
+  search: string;
+  onClick: () => void;
+  onChange: () => void;
 }
 
-export const SearchBox = ({ data }: SearchBoxProps) => {
-  const [search, setSearch] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
+export const SearchBox = ({
+  selectedOption,
+  search,
+  onClick,
+  onChange,
+}: SearchBoxProps) => {
+  // const [search, setSearch] = useState("");
+  // const [selectedOption, setSelectedOption] = useState("");
 
-  const handleSearch = () => {
-    return data?.filter((item) => {
-      console.log(item?.owner?.toLowerCase()?.includes("studio"));
-    });
-  };
+  // const handleSearch = () => {
+  //   return data?.filter((item) => {
+  //     console.log(item?.owner?.toLowerCase()?.includes("studio"));
+  //   });
+  // };
 
   return (
     <div>
@@ -22,7 +28,7 @@ export const SearchBox = ({ data }: SearchBoxProps) => {
         <select
           className="bg-gray-200 border-y-2 border-l-2 rounded-tl-md rounded-bl-md h-[3rem] mt-10 w-[9rem] px-4 text-lg text-start"
           value={selectedOption}
-          onChange={(e) => setSelectedOption(e.target.value)}
+          onChange={onChange}
         >
           <option value=""></option>
           <option value="title">Title</option>
@@ -34,13 +40,12 @@ export const SearchBox = ({ data }: SearchBoxProps) => {
           name="search"
           className="w-[28rem] h-[3rem] mt-10 border-y-2 border-r-2 bg-amber-500 px-4 flex items-center text-lg"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={onChange}
           autoComplete="off"
-          //style={{ verticalAlign: "middle" }}
         />
         <button
           className="w-[4rem] rounded-tr-md rounded-br-md h-[3rem] mt-10 border-y-2 border-r-2 bg-amber-500 px-4 flex items-center text-lg"
-          onClick={handleSearch}
+          onClick={onClick}
         >
           <BiSearch />
         </button>
