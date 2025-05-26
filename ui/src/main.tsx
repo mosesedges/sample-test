@@ -11,9 +11,14 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ErrorBoundary
       fallback={
-        <p className="font-extrabold text-9xl flex justify-center top-1/2">
-          404
-        </p>
+        <div>
+          <p className="font-extrabold text-9xl flex justify-center items-center">
+            404
+          </p>
+          <p className="flex justify-center items-center mx-auto text-4xl">
+            An error occured Please refresh the page
+          </p>
+        </div>
       }
     >
       <QueryClientProvider client={queryClient}>

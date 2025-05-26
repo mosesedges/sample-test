@@ -1,8 +1,11 @@
 import { Card, type CardProps } from "./component/Card";
-import "./App.css";
-import { Suspense, useState, type ChangeEvent, useEffect } from "react";
+import { useState, type ChangeEvent, useEffect } from "react";
 import { SearchBox } from "./utils/Search";
-import { localizedDate, localeTime } from "./utils/formattedDateAndTime";
+import {
+  localizedDate,
+  localeTime,
+  showStatus,
+} from "./utils/formattedDateAndTime";
 import { useData } from "./utils/useData";
 import { Pagination } from "./utils/Pagination";
 
@@ -11,10 +14,10 @@ const LIMIT = 14;
 function App() {
   const [filter, setFilter] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
-  const [page, setPage] = useState(0); // pagination page
+  const [page, setPage] = useState(0);
   const skip = page * LIMIT;
 
-  const { data, isPending, isSuccess, refetch } = useData(
+  const { data, refetch } = useData(
     `?skip=${skip}&limit=${LIMIT}&order_by=id&${filter ?? ""}=${
       searchTerm ?? ""
     }`
@@ -37,7 +40,7 @@ function App() {
   };
 
   const handleSearchClick = () => {
-    setPage(0); // reset to first page
+    setPage(0);
     refetch().then((result) => {
       setContributorsData(result.data?.contributions || []);
     });
@@ -57,26 +60,10 @@ function App() {
   };
 
   useEffect(() => {
-    refetch().then((result) => {
+    refetch()?.then((result) => {
       setContributorsData(result.data?.contributions || []);
     });
   }, [page]);
-
-  const showStatus = (startTime: string) => {
-    const formatDate = (date: Date) => date.toISOString().split("T")[0];
-
-    const currentDate = formatDate(new Date());
-    const showDate = formatDate(new Date(startTime));
-    let status = "";
-    if (currentDate > showDate) {
-      status = "Completed";
-    } else if (currentDate === showDate) {
-      status = "Active";
-    } else {
-      status = "Scheduled";
-    }
-    return status;
-  };
 
   return (
     <div className="p-6">
@@ -95,37 +82,33 @@ function App() {
         isNextDisabled={contributorsData.length < LIMIT}
         isPreviousDisabled={page === 0}
       />
-
       <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 m-4 py-4 max-w-9xl mx-auto">
-        <Suspense fallback={"Loading ..."}>
-          {contributorsData?.map((item: CardProps) => {
-            const { id, title, description, owner, startTime, endTime } = item;
-            const localeStartTime = localizedDate({ date: startTime });
-            const localeEndTime = localizedDate({ date: endTime });
-            const formattedStartTime = localeTime(startTime);
-            const formattedEndTime = localeTime(endTime);
-            return (
-              <div key={id}>
-                <Card
-                  title={title}
-                  description={description}
-                  startTime={formattedStartTime}
-                  endTime={
-                    formattedStartTime === formattedEndTime
-                      ? ""
-                      : formattedEndTime
-                  }
-                  owner={owner}
-                  showStatus={showStatus(startTime)}
-                  startDate={localeStartTime}
-                  endDate={
-                    localeStartTime === localeEndTime ? "" : localeEndTime
-                  }
-                />
-              </div>
-            );
-          })}
-        </Suspense>
+        {contributorsData?.map((item: CardProps) => {
+          const { id, title, description, owner, startTime, endTime } = item;
+          const localeStartTime = localizedDate({ date: startTime });
+          const localeEndTime = localizedDate({ date: endTime });
+          const formattedStartTime = localeTime(startTime);
+          const formattedEndTime = localeTime(endTime);
+          showStatus(startTime);
+          return (
+            <div key={id}>
+              <Card
+                title={title}
+                description={description}
+                startTime={formattedStartTime}
+                endTime={
+                  formattedStartTime === formattedEndTime
+                    ? ""
+                    : formattedEndTime
+                }
+                owner={owner}
+                showStatus={showStatus(startTime)}
+                startDate={localeStartTime}
+                endDate={localeStartTime === localeEndTime ? "" : localeEndTime}
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
