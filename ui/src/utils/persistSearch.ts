@@ -1,65 +1,67 @@
-// import { useEffect, useState } from "react";
-// //import { useSearchParams, useNavigate } from "react-router-dom";
+// I left this file to show the progress I made trying to implement "Persisting  searches and pagination within the URL"
 
-// const LIMIT = 14;
+/*import { useEffect, useState } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
-// export function usePersistedSearch() {
-//   //const [searchParams, setSearchParams] = useSearchParams();
-//   //const navigate = useNavigate();
+const LIMIT = 14;
 
-//   const getParam = (key: string, fallback: string) =>
-//     searchParams.get(key) ?? fallback;
+export function usePersistedSearch() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
-//   const [filter, setFilter] = useState(getParam("filter", ""));
-//   const [searchTerm, setSearchTerm] = useState(getParam("search", ""));
-//   //const [page, setPage] = useState(Number(getParam("page") || "0"));
+  const getParam = (key: string, fallback: string) =>
+    searchParams.get(key) ?? fallback;
 
-//   const skip = page * LIMIT;
+  const [filter, setFilter] = useState(getParam("filter", ""));
+  const [searchTerm, setSearchTerm] = useState(getParam("search", ""));
+  const [page, setPage] = useState(Number(getParam("page") || "0"));
 
-//   const updateURLParams = (
-//     newFilter = filter,
-//     newSearchTerm = searchTerm,
-//     newPage = page
-//   ) => {
-//     setSearchParams({
-//       filter: newFilter,
-//       search: newSearchTerm,
-//       page: newPage.toString(),
-//     });
-//   };
+  const skip = page * LIMIT;
 
-//   useEffect(() => {
-//     setFilter(getParam("filter", ""));
-//     setSearchTerm(getParam("search", ""));
-//     setPage(Number(getParam("page") || "0"));
-//   }, []);
+  const updateURLParams = (
+    newFilter = filter,
+    newSearchTerm = searchTerm,
+    newPage = page
+  ) => {
+    setSearchParams({
+      filter: newFilter,
+      search: newSearchTerm,
+      page: newPage.toString(),
+    });
+  };
 
-//   const handleSearch = () => {
-//     setPage(0);
-//     updateURLParams(filter, searchTerm, 0);
-//   };
+  useEffect(() => {
+    setFilter(getParam("filter", ""));
+    setSearchTerm(getParam("search", ""));
+    setPage(Number(getParam("page") || "0"));
+  }, []);
 
-//   const handleNextPage = () => {
-//     const nextPage = page + 1;
-//     setPage(nextPage);
-//     updateURLParams(filter, searchTerm, nextPage);
-//   };
+  const handleSearch = () => {
+    setPage(0);
+    updateURLParams(filter, searchTerm, 0);
+  };
 
-//   const handlePreviousPage = () => {
-//     const prevPage = Math.max(page - 1, 0);
-//     setPage(prevPage);
-//     updateURLParams(filter, searchTerm, prevPage);
-//   };
+  const handleNextPage = () => {
+    const nextPage = page + 1;
+    setPage(nextPage);
+    updateURLParams(filter, searchTerm, nextPage);
+  };
 
-//   return {
-//     filter,
-//     setFilter,
-//     searchTerm,
-//     setSearchTerm,
-//     page,
-//     skip,
-//     handleSearch,
-//     handleNextPage,
-//     handlePreviousPage,
-//   };
-// }
+  const handlePreviousPage = () => {
+    const prevPage = Math.max(page - 1, 0);
+    setPage(prevPage);
+    updateURLParams(filter, searchTerm, prevPage);
+  };
+
+  return {
+    filter,
+    setFilter,
+    searchTerm,
+    setSearchTerm,
+    page,
+    skip,
+    handleSearch,
+    handleNextPage,
+    handlePreviousPage,
+  };
+}*/
