@@ -20,8 +20,6 @@ const mockData = {
 };
 
 const refetchMock = vi.fn(() => Promise.resolve({ data: mockData }));
-
-// Mock the useData hook
 vi.mock("./hooks/useData", async () => {
   const actual = await vi.importActual<typeof useDataModule>("./hooks/useData");
   return {
