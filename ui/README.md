@@ -42,7 +42,7 @@ _solution:_ Render either 12 or 18 Cards per page instead, so there are empty sp
 
 ## Todo
 
-**Things I will do differently if I had more time.**
+**Things I would do if I had more time.**
 
 - Format start date and end date with the same year and month but different days to show May 27-28, 2025
 
