@@ -6,7 +6,7 @@ import {
   localeTime,
   showStatus,
 } from "./utils/formattedDateAndTime";
-import { useData } from "./utils/useData";
+import { useData } from "./hooks/useData";
 import { Pagination } from "./utils/Pagination";
 
 const LIMIT = 14;
@@ -45,11 +45,6 @@ function App() {
       setContributorsData(result.data?.contributions || []);
     });
   };
-
-  useEffect(() => {
-    window.document.title = `${filter} ${searchTerm}`;
-    console.log(window.document.title);
-  }, [filter]);
 
   const handleNextPage = () => {
     setPage((prev) => prev + 1);

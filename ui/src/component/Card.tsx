@@ -40,7 +40,7 @@ export const Card: React.FC<CardWithStatusProps> = ({
       </p>
       <img src="/video.png" alt="video/png" className="w-32 h-32 mx-auto" />
       <h2 className="font-bold text-center">{title}</h2>
-      <p className="line-clamp-1 " title={description}>
+      <p className="sm:line-clamp-1 description" title={description}>
         {description}
       </p>
       <div className="flex justify-between text-sm">

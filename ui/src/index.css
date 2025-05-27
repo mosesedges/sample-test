@@ -6,61 +6,22 @@ body {
   text-decoration-color: 'white';
 }
 
-h1,
-.header-1 {
-  font-size: 3.3125rem;
-  font-family: 'Source Sans Pro';
-  line-height: 3.5625rem;
-  letter-spacing: -0.03125rem;
-  font-weight: 600;
-}
 
 h2,
 .header-2 {
-   font-size: 1.10rem; 
+   font-size: 1.30rem; 
   font-family: 'Source Sans Pro';
   line-height: 3rem;
   letter-spacing: -0.00225rem;
 }
 
-h3,
-.header-3 {
-  font-size: 2rem;
-  font-family: 'Source Sans Pro';
-  letter-spacing: 0;
-  line-height: 2.5rem;
-}
 
-h4,
-.header-4 {
-  font-size: 1.5rem;
-  font-family: 'Source Sans Pro';
-  letter-spacing: 0;
-  line-height: 1.9375rem;
-  font-weight: 400;
-}
-
-.body-1 {
-  font-size: 1.3125rem;
-  font-family: 'Source Sans Pro';
-  letter-spacing: 0;
-  line-height: 1.96875rem;
-}
-
-.body-2 {
+.description {
   font-size: 1.1875rem;
   font-family: 'Source Sans Pro';
   letter-spacing: 0;
   line-height: 1.78125rem;
 }
-
-.body-3 {
-  font-size: 1.0625rem;
-  font-family: 'Source Sans Pro';
-  letter-spacing: 0;
-  line-height: 1.59375rem;
-}
-
 .icon{
   width: 20px;
 height: 30px;
@@ -68,49 +29,18 @@ height: 30px;
 }
 
 @media (max-width: 576px) {
-  h1,
-  .header-1 {
-    font-size: 2.5625rem;
-    line-height: 2.875rem;
-    letter-spacing: -0.03125rem;
-  }
 
   h2,
   .header-2 {
-    font-size: 2.1875rem;
+    font-size: 1.6875rem;
     line-height: 2.375rem;
     letter-spacing: -0.03125rem;
   }
 
-  h3,
-  .header-3 {
-    font-size: 1.5rem;
-    letter-spacing: 0;
-    line-height: 1.9375rem;
-  }
-
-  h4,
-  .header-4 {
-    font-size: 1.3125rem;
-    letter-spacing: 0;
-    line-height: 1.625rem;
-  }
-
-  .body-1 {
-    font-size: 1.1875rem;
-    letter-spacing: 0;
-    line-height: 1.78125rem;
-  }
-
-  .body-2 {
+  .description {
     font-size: 1.0625rem;
     letter-spacing: 0;
     line-height: 1.59375;
   }
 
-  .body-3 {
-    font-size: 0.9375rem;
-    letter-spacing: 0;
-    line-height: 1.40625rem;
-  }
 }

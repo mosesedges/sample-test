@@ -20,7 +20,7 @@ export const SearchBox: React.FC<SearchBoxProps> = ({
     <div className="flex items-center rounded-md overflow-hidden w-full  sm:max-w-[560px] mx-auto">
       <select
         aria-label="Search filter"
-        className="bg-gray-200 h-12 sm:w-36 px-4 sm:text-lg border-none focus:outline-none w-24 text-[0.8rem]"
+        className="bg-gray-200 h-12 sm:w-36 px-4 sm:text-lg border-none w-24 text-[0.8rem]"
         value={selectedField}
         onChange={onFieldChange}
       >
@@ -28,7 +28,6 @@ export const SearchBox: React.FC<SearchBoxProps> = ({
         <option value="title">Title</option>
         <option value="owner">Contributor</option>
         <option value="description">Description</option>
-        <option value="startTime">Date</option>
       </select>
 
       <input
