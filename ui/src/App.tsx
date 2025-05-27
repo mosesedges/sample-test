@@ -78,6 +78,7 @@ function App() {
         isPreviousDisabled={page === 0}
       />
       <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 m-4 py-4 max-w-9xl mx-auto">
+        {/* This can be improved with useMemo() ; */}
         {contributorsData?.map((item: CardProps) => {
           const { id, title, description, owner, startTime, endTime } = item;
           const localeStartTime = localizedDate({ date: startTime });
