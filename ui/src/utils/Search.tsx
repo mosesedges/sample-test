@@ -44,7 +44,7 @@ export const SearchBox: React.FC<SearchBoxProps> = ({
 
       <button
         type="button"
-        className="h-12 sm:w-12 bg-amber-500 flex items-center justify-center text-white hover:bg-amber-600 transition"
+        className="h-12 sm:w-12 bg-amber-500 flex items-center justify-center text-white hover:bg-amber-600 transition cursor-pointer"
         onClick={onSearch}
         aria-label="Execute search"
       >

@@ -61,6 +61,12 @@ h4,
   line-height: 1.59375rem;
 }
 
+.icon{
+  width: 20px;
+height: 30px;
+
+}
+
 @media (max-width: 576px) {
   h1,
   .header-1 {

@@ -35,7 +35,7 @@ export const Card: React.FC<CardWithStatusProps> = ({
     >
       <p className="text-sm flex items-center">
         {" "}
-        <PiFilmReel className=" w-[22px] h-[30px]" />
+        <PiFilmReel className="icon" />
         {owner}
       </p>
       <img src="/video.png" alt="video/png" className="w-32 h-32 mx-auto" />
@@ -45,13 +45,13 @@ export const Card: React.FC<CardWithStatusProps> = ({
       </p>
       <div className="flex justify-between text-sm">
         <div className="flex justify-between items-center ">
-          <MdDateRange className=" w-[22px] h-[30px] mr-2" />
+          <MdDateRange className=" icon mr-2" />
           <p>{startDate}</p>
           {endDate && <p>-</p>}
           <p>{endDate} </p>
         </div>
         <div className="flex justify-between items-center text-sm">
-          <MdAccessTime className=" w-[22px] h-[30px] mr-2" />
+          <MdAccessTime className=" icon mr-2" />
           <p>{startTime}</p>
           <p>-</p>
           <p>{endTime} </p>
@@ -67,7 +67,7 @@ export const Card: React.FC<CardWithStatusProps> = ({
                 ? "orange"
                 : "red"
             }
-            className="w-[20px] h-[30px]"
+            className="icon"
           />
           {showStatus}
         </p>
